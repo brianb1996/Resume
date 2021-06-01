@@ -1,17 +1,54 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React , {useEffect}from 'react'
+import ReactDOM from 'react-dom'
+import NavBar from './components/NavBar'
+import {BrowserRouter, Route} from 'react-router-dom'
+import Interests from './containers/Interests'
+import Skills from './containers/Skills'
+import Education from './containers/Education'
+import Experience from './containers/Experience'
+import About from './containers/About'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
+    return null;
+  }
+  
+  // Render this somewhere using:
+  // <Route path="..." children={<LongContent />} />
+  const ScrollHere = () => {
+    return (
+      <div>
+        <ScrollToTopOnMount />
+      </div>
+    );
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const RouteStyle ={
+    marginLeft: '250px'
+}
+
+const AppContainer = () =>{
+    return(
+        <>  
+        <BrowserRouter>
+            <NavBar/> 
+        </BrowserRouter>          
+        </>
+    )
+
+}
+
+ReactDOM.render(<AppContainer/>, document.querySelector('#root'))
+
+
+{/* <BrowserRouter>
+<NavBar/>
+<Route style={RouteStyle} exact path='/' component={About}/>
+<Route style={RouteStyle} exact path='/Experience' component={Experience}/>
+<Route style={RouteStyle} exact path='/Education' componenet={Education}/>
+<Route style={RouteStyle} exact path='/Skills' component={Skills}/>
+<Route style={RouteStyle} exact path='/Interests' component={Interests}/>
+</BrowserRouter> */}
