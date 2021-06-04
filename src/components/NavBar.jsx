@@ -1,23 +1,25 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useRef, useState} from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Avatar from '@material-ui/core/Avatar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import About from '../containers/About'
 import Education from '../containers/Education'
 import Experience from '../containers/Experience'
 import Interests from '../containers/Interests'
 import Skills from '../containers/Skills'
+import {Link} from 'react-scroll'
+import { Grid } from '@material-ui/core';
+
 
 const drawerWidth = 240;
 
@@ -47,30 +49,80 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor:'darkslategrey'
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  large: {
+    display: 'flex',
+    width: theme.spacing(15),
+    height: theme.spacing(15),
+  },
 }));
 
+
+
+
 const NavBar = (props) => {
+
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const AboutRef = useRef(null)
+  const EducationRef = useRef(null)
+  const ExperienceRef = useRef(null)
+  const InterestsRef = useRef(null)
+  const SkillsRef = useRef(null)
+
+  // const [section, setSection] = React.useState("");
+
+  //
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // Render this somewhere using:
+  // <Route path="..." children={<LongContent />} />
+
+  const menuData = [
+    {
+      title: 'About',
+    },
+    {
+      title: 'Experience',
+    },
+    {
+      title: 'Education',
+    },
+    {
+      title: 'Skills',
+    },
+    {
+      title: 'Interests',
+    }
+  ]
+
   const drawer = (
-    <div>
+    <div justify="center"> 
       <div className={classes.toolbar} />
+      <Hidden xsDown implementation="css" >
+        <Grid container justify='center'>
+          <Avatar 
+            alt="Brian Bredahl" 
+            src="https://media-exp1.licdn.com/dms/image/C4D03AQEmxodT-brRpQ/profile-displayphoto-shrink_200_200/0/1517494521058?e=1628121600&v=beta&t=lBKpvRbo9xe_iyv7PIIp55lqdkxzzzV-tR5EtcZTLZg" 
+            className={classes.large}
+            />
+        </Grid>
+        <div className={classes.toolbar} />
+      </Hidden>
       <List>
-        {['About', 'Experience', 'Education', 'Skills', 'Interests'].map((text) => (
-          <ListItem button key={text} component={Link} to={`/${text}`}> 
-            <ListItemText primary={text} />
+        {menuData.map((data) => (
+          <ListItem button key={data.title} component={Link} activeClass="active" to={data.title} spy={true} smooth={true}> 
+            <ListItemText primary={data.title} align="center"/>
           </ListItem>
         ))}
       </List>
@@ -79,11 +131,13 @@ const NavBar = (props) => {
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
+
+
   return (
     <div className={classes.root}>
       <CssBaseline />
 
-      <nav className={classes.drawer} aria-label="Menu">
+      <nav className={classes.drawer} aria-label="Menu" >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <AppBar position="fixed" className={classes.appBar}>
@@ -130,7 +184,7 @@ const NavBar = (props) => {
           </Drawer>
         </Hidden>
       </nav>
-      <main>
+      <main className={classes.content} style={{backgroundColor:'lightgrey', height:'100%'}}>
         <About/>
         <Experience/>
         <Education/>
