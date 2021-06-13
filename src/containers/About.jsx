@@ -4,6 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import Hidden from '@material-ui/core/Hidden';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import IconButton from '@material-ui/core/IconButton';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +25,7 @@ const content = {
 
 const page ={
     height: '45vh',
-    padding: '10% 5%'
+    padding: '10% 2%'
 }
 
 const About = () => {
@@ -53,17 +56,17 @@ const About = () => {
                             </Grid>
                         </Grid>
                         <Grid container justify="flex-end">
-                            <Grid item xs={12} sm={12} md={12} lg={4}>
+                            <Grid item xs={12}>
                                 <Typography variant='h5' align="right">
                                     ST. LOUIS MISSOURI
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12} sm={12} md={12} lg={4}>
+                            <Grid item xs={12}>
                                 <Typography variant='h5' align="right">
                                     314-809-2486
                                 </Typography>
                             </Grid>
-                            <Grid item xs={12} sm={12} md={12} lg={4}>
+                            <Grid item xs={12}>
                                 <Typography variant='h5' align="right">
                                     bbredahl1996@gmail.com
                                 </Typography>
@@ -73,11 +76,24 @@ const About = () => {
                 </div>
                 <div style={page}>
                     <div style={content}>
-                        <Typography variant='h5'>
+                        <Typography variant='body1'>
                             I am currently pursing my Bachelor's Degree in Computer Science at UMSL 
                             and I am searching for an opportunity in programming and web development.
                         </Typography>
                     </div>
+                    <Grid container spacing={0} justify="flex-start">
+                        <Grid item xs={0}>
+                            <IconButton color="inherit" onClick={()=> window.open("http://www.linkedin.com/in/brian-bredahl-338054138", "_blank", "noopener,noreferrer")}>
+                                <LinkedInIcon fontSize='large' style={{color:"darkslategrey"}}/>
+                            </IconButton>
+                        </Grid>
+                        <Grid item xs={0}>
+                            <IconButton color="inherit" onClick={()=> window.open("https://github.com/brianb1996", "_blank", "noopener,noreferrer")}>
+                                <GitHubIcon fontSize="large" style={{color:"darkslategrey"}}/>
+                            </IconButton>
+                        </Grid>
+                    </Grid>
+                    
                 </div>
             </>
         )

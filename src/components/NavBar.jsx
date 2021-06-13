@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useState} from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor:'darkslategrey'
+    backgroundImage:'linear-gradient(to bottom right,lightgrey, darkslategrey)'
   },
   content: {
     flexGrow: 1,
@@ -71,11 +71,7 @@ const NavBar = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const AboutRef = useRef(null)
-  const EducationRef = useRef(null)
-  const ExperienceRef = useRef(null)
-  const InterestsRef = useRef(null)
-  const SkillsRef = useRef(null)
+
 
   // const [section, setSection] = React.useState("");
 
@@ -121,9 +117,18 @@ const NavBar = (props) => {
       </Hidden>
       <List>
         {menuData.map((data) => (
-          <ListItem button key={data.title} component={Link} activeClass="active" to={data.title} spy={true} smooth={true}> 
-            <ListItemText primary={data.title} align="center"/>
-          </ListItem>
+          <>
+            <Hidden smUp implementation="css">
+              <ListItem button key={data.title} component={Link} activeClass="active" to={data.title} spy={true} offset={-50} smooth={true} onClick={handleDrawerToggle}> 
+                <ListItemText primary={data.title} align="center"/>
+              </ListItem>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+              <ListItem button key={data.title} component={Link} activeClass="active" to={data.title} spy={true} smooth={true}> 
+                <ListItemText primary={data.title} align="center"/>
+              </ListItem>
+            </Hidden>
+          </>
         ))}
       </List>
     </div>

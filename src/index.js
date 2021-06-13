@@ -1,11 +1,9 @@
 import React , {useEffect}from 'react'
 import ReactDOM from 'react-dom'
 import NavBar from './components/NavBar'
-import Interests from './containers/Interests'
-import Skills from './containers/Skills'
-import Education from './containers/Education'
-import Experience from './containers/Experience'
-import About from './containers/About'
+import '@fontsource/roboto';
+
+
 
 
 const AppContainer = () =>{
