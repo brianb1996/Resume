@@ -7,10 +7,6 @@ import { loadCSS } from 'fg-loadcss';
 import { makeStyles } from '@material-ui/core/styles';
 
 
-const content = {
-    margin: '10px'
-}
-
 const page ={
     height: '100vh',
     padding: '5%'
