@@ -62,14 +62,16 @@ const About = () => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={12}>
+                                {/*Redacted to help cut down on spam calls/emails
                                 <Typography variant='h5' align="right">
                                     314-809-2486
-                                </Typography>
+                                </Typography> */}
                             </Grid>
                             <Grid item xs={12}>
+                                {/* Redacted to help cut down on spam calls/emails
                                 <Typography variant='h5' align="right">
                                     bbredahl1996@gmail.com
-                                </Typography>
+                                </Typography> */}
                             </Grid>
                         </Grid>
                     </Grid>
