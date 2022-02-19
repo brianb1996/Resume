@@ -109,7 +109,7 @@ const NavBar = (props) => {
         <Grid container justify='center'>
           <Avatar 
             alt="Brian Bredahl" 
-            src="https://media-exp1.licdn.com/dms/image/C4D03AQEmxodT-brRpQ/profile-displayphoto-shrink_200_200/0/1517494521058?e=1628121600&v=beta&t=lBKpvRbo9xe_iyv7PIIp55lqdkxzzzV-tR5EtcZTLZg" 
+            src="https://media-exp1.licdn.com/dms/image/C4E03AQG2ASBxlTuD4Q/profile-displayphoto-shrink_200_200/0/1634865032048?e=1650499200&v=beta&t=ILR3-iE3BWznU8GQXD_Lq2Ik04Gj2qQYEaRpPVwgxTQ" 
             className={classes.large}
             />
         </Grid>
