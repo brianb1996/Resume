@@ -19,11 +19,25 @@ const page ={
 const Experience = () => {
     const work = [
         {
+            "name": "Emerson Electric",
+            "location": "St. Louis, MO",
+            "role": "Co-op Developer",
+            "start": "August 30, 2021",
+            "end": "Current",
+            "responsibilities": [
+                "Develop components and web applications for company website",
+                "Develop applications with Freemarker, JavaScript, Java and any other language required",
+                "Implement SAFe practice on a daily basis, and stay up to date on SAFe certification",
+                "Follow best coding practices as well as guidlines set by Emerson",
+                "Develop code following 2 week iterations"
+            ]
+        },
+        {
             "name": "Rick's Ace Hardware",
             "location": "Ellisville, MO",
             "role": "Department Manager",
             "start": "July 2019",
-            "end": "Current",
+            "end": "August 29,2021",
             "responsibilities": [
                 "Maintain Hardware, Electrical, Plumbing, and Housewares departments as well as Stock room and outdoor areas.",
                 "General Retail Store Operations.",
